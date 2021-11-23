@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Aesthetic Cakes</string>
+    <string name="contact_us">CONTÁCTANOS</string>
+    <string name="info_contact_us">Somos una empresa dedicada a la producción y distribución de productos de panadería, pastelería y repostería de alta calidad y sabor; fundada en 2021 en La Esperanza, Intibucá.\n\nOfrecemos a nuestros clientes productos de la mejor calidad y frescura. Contamos con una amplia gama de variedades en pan, repostería y pasteles de línea para todo tipo de gusto.</string>
+    <string name="info2_contact_us">
+        Teléfono: 2783-5555\nWhatsApp: 9999-4444\nFacebook: @aesthetic_cakes
+    </string>
+
 </resources>

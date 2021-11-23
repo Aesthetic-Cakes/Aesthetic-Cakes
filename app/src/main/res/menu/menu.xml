@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group0"> android:checkableBehavior="single"
+
+        <item android:title="Iniciar Sesión"
+            android:id="@+id/btnNavInicioSesion"
+            android:icon="@drawable/ic_iniciar_sesion"/>
+    </group>
+
+<group android:id="@+id/group1"> android:checkableBehavior="single"
+
+<item android:title="Inicio"
+    android:id="@+id/btnNavInicio"
+    android:icon="@drawable/ic_inicio"/>
+<item android:title="Carrito"
+    android:id="@+id/btnNavCarrito"
+    android:icon="@drawable/ic_carrito"/>
+
+</group>
+
+    <group android:id="@+id/group2"> android:checkableBehavior="single"
+        <item
+            android:id="@+id/navigation_subheader1"
+            android:title="Otros">
+            <menu>
+                <item
+                    android:id="@+id/btnNavEquipoDesarrollo"
+                    android:title="Equipo de desarrollo"
+                    android:icon="@drawable/ic_developers"/>
+                <item
+                    android:id="@+id/btnNavContactanos"
+                    android:title="Contáctanos"
+                    android:icon="@drawable/ic_contac_us"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/group3"> android:checkableBehavior="single"
+        <item
+            android:id="@+id/btnNavCerrarSesion"
+            android:title="Cerrar Sesión"
+            android:icon="@drawable/ic_logout"/>
+    </group>
+</menu>
