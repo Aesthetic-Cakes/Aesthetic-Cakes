@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "989090403217",
+    "firebase_url": "https://aesthetic-cake-default-rtdb.firebaseio.com",
+    "project_id": "aesthetic-cake",
+    "storage_bucket": "aesthetic-cake.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989090403217:android:8aead72f26763824144030",
+        "android_client_info": {
+          "package_name": "com.example.aestheticcakes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989090403217-qsig07n0utufm3b3hivb15h75vnv2jt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aestheticcakes",
+            "certificate_hash": "67fd16f76df375d2351bac6eb52b429c37795f59"
+          }
+        },
+        {
+          "client_id": "989090403217-db2fsu903mnnmfvougr6hcdjahgpoo0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaQQIcg9FBY3r3u-8oXXZopziv_eNcDv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989090403217-db2fsu903mnnmfvougr6hcdjahgpoo0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
