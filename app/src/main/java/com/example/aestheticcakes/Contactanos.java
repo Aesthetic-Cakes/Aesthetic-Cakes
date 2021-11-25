@@ -100,7 +100,7 @@ public class Contactanos extends AppCompatActivity implements
                 Toast.makeText(this, "Equipo de desarrollo", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnNavContactanos:
-                Toast.makeText(this, "Contáctanos", Toast.LENGTH_SHORT).show();
+                abrirInterfaz(Contactanos.class);
                 break;
             case R.id.btnNavCerrarSesion:
                 Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
