@@ -45,4 +45,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.squareup.picasso:picasso:2.71828' // CAREFUL
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 }
