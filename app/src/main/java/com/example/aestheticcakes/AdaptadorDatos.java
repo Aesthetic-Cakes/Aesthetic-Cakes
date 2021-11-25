@@ -1,23 +1,28 @@
 package com.example.aestheticcakes;
 
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos>
                             implements View.OnClickListener{
+
+
 
     ArrayList<Producto> dataList;
     private View.OnClickListener listener;
@@ -37,11 +42,16 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
+
         holder.productName.setText(dataList.get(position).getName());
         holder.productPrice.setText("Lps: " + dataList.get(position).getPrice().toString());
 
-        Picasso.get().load(dataList.get(position).getImage()).into(holder.productImage);
+        Picasso.get().load(dataList.get(position).getImage()).fit().centerInside().noFade().placeholder(R.drawable.clock).into(holder.productImage);
+
+        Log.d("TAG", "ALL DATA READY");
     }
+
+
 
     @Override
     public int getItemCount() {

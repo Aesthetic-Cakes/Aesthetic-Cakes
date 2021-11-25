@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -18,13 +19,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
         app:layout_constraintVertical_bias="0.102">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/productImage"
-            android:layout_width="107dp"
-            android:layout_height="113dp"
-            app:srcCompat="@mipmap/noproduct" />
+            android:layout_width="139dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="4dp"
+
+            app:srcCompat="@mipmap/noproduct"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            />
 
         <TextView
             android:id="@+id/productName"

@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AestheticCakes">
         <activity
-            android:name=".CategoriasYProductos"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".Contactanos"
             android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".CategoriasYProductos"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
