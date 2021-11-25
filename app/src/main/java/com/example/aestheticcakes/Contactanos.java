@@ -1,25 +1,44 @@
 package com.example.aestheticcakes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import com.example.aestheticcakes.NavMenuOptions;
+import android.widget.Toast;
+
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.google.android.material.internal.NavigationMenuView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.InputStream;
 import java.net.URL;
 
-public class Contactanos extends AppCompatActivity {
+public class Contactanos extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener{
+
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactanos);
+
+        //Variable del Scroll Bar //Aplicable a todas las activity
+        navigationView = (NavigationView)findViewById(R.id.navView);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        }
+        //Para añadir el scrollbar
+        navigationView.bringToFront();
+        navigationView.setVerticalScrollBarEnabled(true);
+        //Fin de seccion del Scroll Bar //Aplicable a todas las activity
 
         WebView web = (WebView) findViewById(R.id.mapa); //Objeto pantalla
         web.setWebViewClient(new MyWebViewClient());
@@ -53,10 +72,6 @@ public class Contactanos extends AppCompatActivity {
     }
     //Fin de las redirecciones
 
-    //Inicio de los metodos del menu
-
-    //Fin de los metodos del menu
-
     private class MyWebViewClient extends WebViewClient {
 
         @Override
@@ -65,4 +80,41 @@ public class Contactanos extends AppCompatActivity {
             return true;
         }
     }
+
+    //Inicio de los metodos del menu //Aplicable a todas las activity
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id){
+            case R.id.btnNavInicioSesion:
+                Toast.makeText(this, "Iniciar Sesión", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnNavInicio:
+                abrirInterfaz(MainActivity.class);
+                break;
+            case R.id.btnNavCarrito:
+                Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnNavEquipoDesarrollo:
+                Toast.makeText(this, "Equipo de desarrollo", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnNavContactanos:
+                Toast.makeText(this, "Contáctanos", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btnNavCerrarSesion:
+                Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    private void abrirInterfaz(Class clase){
+        Intent interfaz = new Intent(this, clase);
+        startActivity(interfaz); //Iniciando la activid
+    }
+
+    //Fin de los metodos del menu //Aplicable a todas las activity
 }
