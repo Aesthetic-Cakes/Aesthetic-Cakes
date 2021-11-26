@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -216,7 +217,20 @@ public class CategoriasYProductos extends AppCompatActivity {
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Product ID: " +dataList.get(recycler.getChildAdapterPosition(v)).getProductDescription(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent (v.getContext(), detalleProducto.class);
+                startActivity(intent);
+                ProductoDetalle detalle = new ProductoDetalle();
+
+                detalle.setCodigoSeleccionado(dataList.get(recycler.getChildAdapterPosition(v)).getProductID());
+                detalle.setNombreSelccionado(dataList.get(recycler.getChildAdapterPosition(v)).getName());
+                detalle.setDescripcionSeleccionada(dataList.get(recycler.getChildAdapterPosition(v)).getProductDescription());
+                detalle.setPrecioSeleccionado(dataList.get(recycler.getChildAdapterPosition(v)).getPrice());
+
+                detalle.setImage1(dataList.get(recycler.getChildAdapterPosition(v)).getImage());
+                detalle.setImage2(dataList.get(recycler.getChildAdapterPosition(v)).getImageSlider1());
+                detalle.setImage3(dataList.get(recycler.getChildAdapterPosition(v)).getImageSlider2());
+                //Toast.makeText(getApplicationContext(), "Product ID: " +detalle.getDescripcionSeleccionada(), Toast.LENGTH_SHORT).show();
             }
         });
     }

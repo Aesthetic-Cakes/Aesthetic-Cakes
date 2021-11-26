@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -13,16 +16,20 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class detalleProducto extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener{
 
     NavigationView navigationView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_producto);
+
+        ProductoDetalle detalle = new ProductoDetalle();
 
         //Variable del Scroll Bar //Aplicable a todas las activity
         navigationView = (NavigationView)findViewById(R.id.navView);
@@ -36,12 +43,29 @@ public class detalleProducto extends AppCompatActivity implements
 
         ImageSlider imageSlider = findViewById(R.id.imageSlider);
 
-        ArrayList<SlideModel> slider = new ArrayList<>();
-        /*slider.add(new SlideModel(R.drawable.cupcakefruta,null));
-        slider.add(new SlideModel(R.drawable.scupcakefrutados,null));
-        slider.add(new SlideModel(R.drawable.scupcakefrutatres,null));*/
+        List<SlideModel> slider = new ArrayList<>();
+
+
+        slider.add(new SlideModel(detalle.getImage1(),null));
+        slider.add(new SlideModel(detalle.getImage2(),null));
+        slider.add(new SlideModel(detalle.getImage3(), null));
 
         imageSlider.setImageList(slider);
+
+        TextView descripcion = findViewById(R.id.txtDescripcion);
+        TextView nombre = findViewById(R.id.txtNombre);
+        TextView precio = findViewById(R.id.txtPrecio);
+
+        nombre.setText(detalle.getNombreSelccionado());
+        descripcion.setText(detalle.getDescripcionSeleccionada());
+        precio.setText("Lps. " + detalle.getPrecioSeleccionado());
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 
     //Inicio de los metodos del menu //Aplicable a todas las activity
@@ -79,4 +103,15 @@ public class detalleProducto extends AppCompatActivity implements
         startActivity(interfaz); //Iniciando la activid
     }
     //Fin de los metodos del menu //Aplicable a todas las activity
+
+
+    public void carritoOpen(View view){
+        ProductoDetalle detalle = new ProductoDetalle();
+
+        //VALIDAR CANTIDAD
+        detalle.setCantidad(4);
+
+        Toast.makeText(getApplicationContext(), "ID: " +detalle.getCodigoSeleccionado() + "  CANTIDAD: " + detalle.getCantidad(), Toast.LENGTH_SHORT).show();
+
+    }
 }
