@@ -9,6 +9,8 @@ public class ProductoDetalle extends detalleProducto {
     protected static String Image1;
     protected static String Image2;
     protected static String Image3;
+    protected static int cantidad;
+
 
     public int getCantidad() {
         return cantidad;
@@ -18,7 +20,6 @@ public class ProductoDetalle extends detalleProducto {
         ProductoDetalle.cantidad = cantidad;
     }
 
-    protected static int cantidad;
 
     public int getCodigoSeleccionado() {
         return codigoSeleccionado;
