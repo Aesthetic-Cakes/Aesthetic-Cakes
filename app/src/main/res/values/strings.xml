@@ -5,5 +5,7 @@
     <string name="info2_contact_us">
         Teléfono: 2783-5555\nWhatsApp: 9999-4444\nFacebook: @aesthetic_cakes
     </string>
+    <string name="invalid_mail">Ingrese un mail valido</string>
+    <string name="invalid_pass">Ingrese una cotraseña mayor a 6 digitos</string>
 
 </resources>

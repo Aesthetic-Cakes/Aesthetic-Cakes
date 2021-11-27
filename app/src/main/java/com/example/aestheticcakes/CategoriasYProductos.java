@@ -56,7 +56,6 @@ public class CategoriasYProductos extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias_yproductos);
-        getSupportActionBar().hide();
 
         dataList = new ArrayList<>();
         recycler = (RecyclerView) findViewById(R.id.products_Recycler);
