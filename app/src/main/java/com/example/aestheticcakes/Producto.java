@@ -1,13 +1,55 @@
 package com.example.aestheticcakes;
 
-public class Producto {
+import android.graphics.Bitmap;
 
+public class Producto {
 
     private int productID;
     private String name;
     private Double price;
     private String image;
+    private String imageSlider1;
+    private String imageSlider2;
+    private String productDescription;
     private int categoryID;
+
+    public Producto(int productID, String name, Double price, String image, String imageSlider1, String imageSlider2, String productDescription, int categoryID) {
+        this.productID = productID;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        this.imageSlider1 = imageSlider1;
+        this.imageSlider2 = imageSlider2;
+        this.productDescription = productDescription;
+        this.categoryID = categoryID;
+    }
+
+
+
+    public String getImageSlider1() {
+        return imageSlider1;
+    }
+
+    public void setImageSlider1(String imageSlider1) {
+        this.imageSlider1 = imageSlider1;
+    }
+
+    public String getImageSlider2() {
+        return imageSlider2;
+    }
+
+    public void setImageSlider2(String imageSlider2) {
+        this.imageSlider2 = imageSlider2;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
 
     public int getProductID() {
         return productID;
@@ -55,13 +97,6 @@ public class Producto {
 
     }
 
-    public Producto(int productID, String name, Double price, String image, int categoryID) {
-        this.productID = productID;
-        this.name = name;
-        this.price = price;
-        this.image = image;
-        this.categoryID = categoryID;
-    }
 
 
 }

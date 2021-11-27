@@ -46,5 +46,4 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.squareup.picasso:picasso:2.71828' // CAREFUL
-    implementation 'com.basgeekball:awesome-validation:4.3'
 }

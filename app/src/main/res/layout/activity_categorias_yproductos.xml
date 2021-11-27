@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layerType="hardware"
     tools:context=".CategoriasYProductos">
 
 
@@ -16,9 +17,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -36,8 +35,10 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
                 android:onClick="loadCat1"
-                android:text="Macarrones"
-                android:textColor="@color/black" />
+                android:text="Macarons"
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent" />
 
             <Button
                 android:id="@+id/btnCat2"
@@ -48,7 +49,9 @@
                 android:fontFamily="@font/poppins"
                 android:onClick="loadCat2"
                 android:text="Alfajores"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent"/>
 
             <Button
                 android:id="@+id/btnCat3"
@@ -57,8 +60,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
+                android:onClick="loadCat3"
                 android:text="Cupcakes"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent" />
 
             <Button
                 android:id="@+id/btnCat4"
@@ -67,8 +73,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
-                android:text="Cheesecakes"
-                android:textColor="@color/black" />
+                android:onClick="loadCat4"
+                android:text="Pasteles"
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent" />
 
             <Button
                 android:id="@+id/btnCat5"
@@ -77,8 +86,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
-                android:text="Pasteles "
-                android:textColor="@color/black" />
+                android:onClick="loadCat5"
+                android:text="Chocolates"
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent" />
+
             <Button
                 android:id="@+id/btnCat6"
                 style="?android:attr/buttonBarButtonStyle"
@@ -86,8 +99,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
-                android:text="Chocolates "
-                android:textColor="@color/black" />
+                android:onClick="loadCat6"
+                android:text="Cheesecakes"
+                android:textColor="@color/black"
+                app:iconTint="@android:color/transparent"
+                app:rippleColor="@android:color/transparent" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -95,18 +111,20 @@
         android:id="@+id/products_Recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
 
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:iconTint="@color/cardThree"
+        app:rippleColor="@color/cardThree"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"

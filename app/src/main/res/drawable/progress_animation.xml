@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:gravity="center">
+        <animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+            android:drawable="@drawable/loadive"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:rotation="90"
+            android:scaleType="centerInside"
+            android:interpolator="@anim/linear_interpolator"/>
+    </item>
+</layer-list>
