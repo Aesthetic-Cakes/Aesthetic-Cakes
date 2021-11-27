@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AestheticCakes">
         <activity
+            android:name=".EquipoDesarrollo"
+            android:exported="true" />
+        <activity
             android:name=".detalleProducto"
             android:exported="true" />
         <activity

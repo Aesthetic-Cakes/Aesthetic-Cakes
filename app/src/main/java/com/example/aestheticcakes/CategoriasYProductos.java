@@ -5,59 +5,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.webkit.URLUtil;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirestoreRegistrar;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
-public class CategoriasYProductos extends AppCompatActivity {
+public class CategoriasYProductos extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener{
 
     private ArrayList<Producto> listProducts = new ArrayList<Producto>();
+    NavigationView navigationView;
 
     ArrayList<Producto> dataList;
     RecyclerView recycler;
@@ -75,6 +50,16 @@ public class CategoriasYProductos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias_yproductos);
 
+        //Variable del Scroll Bar //Aplicable a todas las activity
+        navigationView = (NavigationView)findViewById(R.id.navView);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        }
+        //Para añadir el scrollbar
+        navigationView.bringToFront();
+        navigationView.setVerticalScrollBarEnabled(true);
+        //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+
         dataList = new ArrayList<>();
         recycler = (RecyclerView) findViewById(R.id.products_Recycler);
         recycler.setLayoutManager(new GridLayoutManager(this, 2));
@@ -87,6 +72,17 @@ public class CategoriasYProductos extends AppCompatActivity {
         dialog.show();
         initFB();
     }
+
+    //Inicio de los metodos del menu //Aplicable a todas las activity
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        new RedireccionadorMenuLateral().redireccionador(id, this);
+        return true;
+    }
+
+    //Fin de los metodos del menu //Aplicable a todas las activity
 
     @Override
     protected void onStart() {

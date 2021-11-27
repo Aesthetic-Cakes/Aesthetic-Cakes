@@ -11,14 +11,8 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
-
-import java.io.InputStream;
-import java.net.URL;
 
 public class Contactanos extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener{
@@ -47,6 +41,17 @@ public class Contactanos extends AppCompatActivity implements
         web.loadUrl("file:///android_asset/mapa.html");
 
     }
+
+    //Inicio de los metodos del menu //Aplicable a todas las activity
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        new RedireccionadorMenuLateral().redireccionador(id, this);
+        return true;
+    }
+
+    //Fin de los metodos del menu //Aplicable a todas las activity
 
     //Inicio de las redirecciones
     public void abrirWhatsApp(View view){
@@ -80,41 +85,4 @@ public class Contactanos extends AppCompatActivity implements
             return true;
         }
     }
-
-    //Inicio de los metodos del menu //Aplicable a todas las activity
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        int id = item.getItemId();
-        switch (id){
-            case R.id.btnNavInicioSesion:
-                Toast.makeText(this, "Iniciar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavInicio:
-                abrirInterfaz(MainActivity.class);
-                break;
-            case R.id.btnNavCarrito:
-                Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavEquipoDesarrollo:
-                Toast.makeText(this, "Equipo de desarrollo", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavContactanos:
-                abrirInterfaz(Contactanos.class);
-                break;
-            case R.id.btnNavCerrarSesion:
-                Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-        return true;
-    }
-
-    private void abrirInterfaz(Class clase){
-        Intent interfaz = new Intent(this, clase);
-        startActivity(interfaz); //Iniciando la activid
-    }
-
-    //Fin de los metodos del menu //Aplicable a todas las activity
 }
