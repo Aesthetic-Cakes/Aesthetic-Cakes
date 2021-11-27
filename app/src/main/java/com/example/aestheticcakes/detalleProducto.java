@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +55,6 @@ public class detalleProducto extends AppCompatActivity implements
         TextView nombre = findViewById(R.id.txtNombre);
         TextView precio = findViewById(R.id.txtPrecio);
 
-
         nombre.setText(detalle.getNombreSelccionado());
         descripcion.setText(detalle.getDescripcionSeleccionada());
         precio.setText("Precio: " + detalle.getPrecioSeleccionado() + " Lps.");
@@ -103,30 +101,8 @@ public class detalleProducto extends AppCompatActivity implements
     //Inicio de los metodos del menu //Aplicable a todas las activity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         int id = item.getItemId();
-        switch (id){
-            case R.id.btnNavInicioSesion:
-                Toast.makeText(this, "Iniciar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavInicio:
-                abrirInterfaz(MainActivity.class);
-                break;
-            case R.id.btnNavCarrito:
-                Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavEquipoDesarrollo:
-                Toast.makeText(this, "Equipo de desarrollo", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavContactanos:
-                abrirInterfaz(Contactanos.class);
-                break;
-            case R.id.btnNavCerrarSesion:
-                Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
+        new RedireccionadorMenuLateral().redireccionador(id, this);
         return true;
     }
 
@@ -135,7 +111,6 @@ public class detalleProducto extends AppCompatActivity implements
         startActivity(interfaz); //Iniciando la activid
     }
     //Fin de los metodos del menu //Aplicable a todas las activity
-
 
 
     public void carritoOpen(View view){
