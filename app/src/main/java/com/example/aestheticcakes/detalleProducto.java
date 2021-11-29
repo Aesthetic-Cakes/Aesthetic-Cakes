@@ -20,8 +20,8 @@ import java.util.List;
 
 public class detalleProducto extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener{
-
-    NavigationView navigationView;
+        private int numeroCantidad = 1;
+        NavigationView navigationView;
 
 
     @Override
@@ -58,43 +58,52 @@ public class detalleProducto extends AppCompatActivity implements
 
         nombre.setText(detalle.getNombreSelccionado());
         descripcion.setText(detalle.getDescripcionSeleccionada());
-        precio.setText("Lps. " + detalle.getPrecioSeleccionado());
+        precio.setText("Precio: " + detalle.getPrecioSeleccionado() + " Lps.");
+
 
     }
 
+
     @Override
     protected void onStart() {
+        ProductoDetalle detalle = new ProductoDetalle();
         super.onStart();
+
+        TextView cantidad = findViewById(R.id.txtCantidad);
+        Button aumentar= findViewById(R.id.btnAumentar);
+        Button disminuir= findViewById(R.id.btnDisminuir);
+        Button carrito = (Button)findViewById(R.id.btnCarrito);
+
+        cantidad.setText(String.valueOf(numeroCantidad));
+        carrito.setText("AÑADIR A CARRITO \n (TOTAL: " + String.valueOf(detalle.getPrecioSeleccionado()) + " LPS)");
+
+        aumentar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numeroCantidad =numeroCantidad + 1;
+                cantidad.setText(String.valueOf(numeroCantidad));
+                carrito.setText("AÑADIR A CARRITO \n (TOTAL: " + String.valueOf(detalle.getPrecioSeleccionado() * numeroCantidad)  + " LPS)");
+            }
+        });
+
+        disminuir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(numeroCantidad > 1){
+                    numeroCantidad =numeroCantidad -1;
+                }
+                    cantidad.setText(String.valueOf(numeroCantidad));
+                    carrito.setText("AÑADIR A CARRITO \n (TOTAL: " + String.valueOf(detalle.getPrecioSeleccionado() * numeroCantidad) + " LPS)");
+            }
+        });
 
     }
 
     //Inicio de los metodos del menu //Aplicable a todas las activity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         int id = item.getItemId();
-        switch (id){
-            case R.id.btnNavInicioSesion:
-                Toast.makeText(this, "Iniciar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavInicio:
-                abrirInterfaz(MainActivity.class);
-                break;
-            case R.id.btnNavCarrito:
-                Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavEquipoDesarrollo:
-                Toast.makeText(this, "Equipo de desarrollo", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btnNavContactanos:
-                abrirInterfaz(Contactanos.class);
-                break;
-            case R.id.btnNavCerrarSesion:
-                Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
+        new RedireccionadorMenuLateral().redireccionador(id, this);
         return true;
     }
 
@@ -108,10 +117,9 @@ public class detalleProducto extends AppCompatActivity implements
     public void carritoOpen(View view){
         ProductoDetalle detalle = new ProductoDetalle();
 
-        //VALIDAR CANTIDAD
-        detalle.setCantidad(4);
 
-        Toast.makeText(getApplicationContext(), "ID: " +detalle.getCodigoSeleccionado() + "  CANTIDAD: " + detalle.getCantidad(), Toast.LENGTH_SHORT).show();
+        //detalle.setCantidad(numeroCantidad);
+        //Toast.makeText(getApplicationContext(), "ID: " +detalle.getCodigoSeleccionado() + "  CANTIDAD: " + detalle.getCantidad(), Toast.LENGTH_SHORT).show();
 
     }
 }

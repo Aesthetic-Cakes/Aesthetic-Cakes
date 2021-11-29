@@ -50,48 +50,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/imageSlider"
-            android:layout_width="match_parent"
-            android:layout_height="196dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="20dp"
-            app:iss_auto_cycle="true"
-            app:iss_corner_radius="20"
-            app:iss_delay="0"
-            app:iss_error_image="@color/purple_700"
-            app:iss_period="3000"
-            app:iss_placeholder="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.373"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNombre"
-            app:layout_constraintVertical_bias="0.088" />
 
-        <TextView
-            android:id="@+id/txtDescripcion"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/card_style"
-            android:fontFamily="@font/poppins"
-            android:justificationMode="inter_word"
-            android:padding="20sp"
-            android:text="¡Estamos encantados de traerte nuestras deliciosas tartas de queso en miniatura! Las tartas de queso con relleno vanilla estilo crème brúlèe son sabrosas, cremosas y artesanales con base de galleta son el acompañamiento perfecto para cualquier cena o picnic.\n\nLa caja contiene 5 unidades."
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_margin="10sp"
+                android:layout_marginBottom="20dp"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="0"
+                app:iss_period="3000"
+                app:iss_placeholder="@drawable/clock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+                app:layout_constraintVertical_bias="0.033" />
 
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/card_style"
+                android:fontFamily="@font/poppins"
+                android:justificationMode="inter_word"
+                android:padding="20sp"
+                android:text="¡Estamos encantados de traerte nuestras deliciosas tartas de queso en miniatura! Las tartas de queso con relleno vanilla estilo crème brúlèe son sabrosas, cremosas y artesanales con base de galleta son el acompañamiento perfecto para cualquier cena o picnic.\n\nLa caja contiene 5 unidades."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageSlider"
+                app:layout_constraintVertical_bias="0.068" />
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingLeft="-15dp"
@@ -100,7 +102,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
-                app:layout_constraintVertical_bias="0.265">
+                app:layout_constraintVertical_bias="0.0">
 
 
                 <TextView
@@ -116,10 +118,46 @@
                     android:padding="15sp"
                     android:text="Precio: 100.0 LPS"
                     android:textColor="#000000"
+                    android:textSize="20sp" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="-15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/txtCantidadL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|left|center_vertical"
+                    android:layout_margin="10sp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:justificationMode="inter_word"
+                    android:padding="6sp"
+                    android:text="Cantidad:"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/btnMenos"
+                    android:id="@+id/btnDisminuir"
+
+                    android:state_focused="false"
+                    android:state_pressed="true"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical|end"
@@ -127,25 +165,26 @@
                     android:background="@drawable/ic_action_name"
                     app:backgroundTint="@color/cardOne" />
 
-                <EditText
+                <TextView
                     android:id="@+id/txtCantidad"
                     android:layout_width="48dp"
                     android:layout_height="33dp"
                     android:layout_gravity="center_vertical|end"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:textSize="18sp"
                     android:gravity="center"
-                    android:inputType="number" />
+                    android:textColor="#000000"
+                    android:justificationMode="inter_word"
+                    android:text="1"
+                    android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/btnMas"
+                    android:id="@+id/btnAumentar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical|end"
                     android:background="@drawable/ic_action_mas"
                     app:backgroundTint="@color/cardOne" />
-
             </LinearLayout>
 
             <Button
@@ -153,9 +192,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:layout_margin="10sp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/poppins_medium"
                 android:onClick="carritoOpen"
-                android:text="AÑADIR A CARRITO"
+                android:text="AÑADIR A CARRITO \n (TOTAL: 100.0)"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 app:backgroundTint="#EBCBC3"
@@ -163,12 +203,15 @@
                 app:iconTint="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+                app:layout_constraintVertical_bias="0.0"
                 app:strokeColor="#000000"
-                app:strokeWidth="3dp" />
+                app:strokeWidth="3dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
