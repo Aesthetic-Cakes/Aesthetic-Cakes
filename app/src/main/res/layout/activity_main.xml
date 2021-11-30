@@ -10,6 +10,7 @@
         android:id="@+id/txtContrasenia3"
         android:layout_width="292dp"
         android:layout_height="46dp"
+        android:background="#EBCBC3"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -24,6 +25,7 @@
         android:id="@+id/txtCorreoLogin2"
         android:layout_width="292dp"
         android:layout_height="46dp"
+        android:background="#EBCBC3"
         android:ems="10"
         android:hint="Correo Electronico"
         android:inputType="textEmailAddress"
@@ -35,51 +37,53 @@
         app:layout_constraintVertical_bias="0.389" />
 
     <Button
-        android:id="@+id/btnRegistro"
+        android:id="@+id/btnInicio"
         android:layout_width="248dp"
         android:layout_height="63dp"
-        android:text="Registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
-
-    <Button
-        android:id="@+id/btnCambiarContra2"
-        android:layout_width="248dp"
-        android:layout_height="63dp"
-        android:text="Olvide mi contraseña"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Iniciar sesion"
+        app:backgroundTint="#EBCBC3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898" />
+        app:layout_constraintVertical_bias="0.682" />
 
     <Button
-        android:id="@+id/btnInicio"
+        android:id="@+id/btnRegistro"
         android:layout_width="248dp"
         android:layout_height="63dp"
-        android:text="Iniciar sesion"
+        android:text="Registrarse"
+        app:backgroundTint="#EBCBC3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.8" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google"
+        android:layout_width="248dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="169dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="84dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtUsuario"
+        android:layout_width="168dp"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:layout_constraintVertical_bias="0.029"
+        app:srcCompat="@mipmap/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
