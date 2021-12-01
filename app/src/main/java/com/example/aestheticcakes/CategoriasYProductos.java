@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +42,10 @@ public class CategoriasYProductos extends AppCompatActivity implements
     Bitmap temp;
     DatabaseReference databaseReference;
 
+    public static String correoElec = "";
+    public static Boolean inicioSesion = false;
+
+
     private Handler handler;
     private ProgressDialog dialog;
 
@@ -58,7 +63,21 @@ public class CategoriasYProductos extends AppCompatActivity implements
         //Para añadir el scrollbar
         navigationView.bringToFront();
         navigationView.setVerticalScrollBarEnabled(true);
-        //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+        //Continua de seccion del Scroll Bar //Aplicable a todas las activity
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
+        TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
+
+        if(inicioSesion == false){
+            nombreMenu.setText("Invitado");
+            correoMenu.setText("Invitado");
+        }
+        else{
+            nombreMenu.setText("Pendiente");
+            correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
+        }
+        //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         dataList = new ArrayList<>();
         recycler = (RecyclerView) findViewById(R.id.products_Recycler);
