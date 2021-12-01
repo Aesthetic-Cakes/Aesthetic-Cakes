@@ -10,51 +10,131 @@
         android:id="@+id/txtCorreo"
         android:layout_width="292dp"
         android:layout_height="46dp"
+        android:gravity="center"
+        android:background="#EBCBC3"
+        android:textColor="#111"
+        android:textColorHint="#111"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Correo"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="292dp"
+        android:layout_height="63dp"
+        tools:ignore="MissingConstraints"
+        tools:latout_editor_absoluteX="92dp"
+        tools:latout_editor_absoluteY="248dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+        app:layout_constraintVertical_bias="0.0"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/txtContraseña2"
+            android:layout_width="292dp"
+            android:layout_height="63dp"
+            android:background="#EBCBC3"
+            android:ems="5"
+            android:gravity="center"
+            android:hint="Contraseña"
+            android:inputType="textPersonName"
+            android:textColor="#111"
+            android:textColorHint="#111"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <EditText
-        android:id="@+id/txtContrasenia"
+        android:id="@+id/txtNombre"
         android:layout_width="292dp"
         android:layout_height="46dp"
+        android:gravity="center"
+        android:background="#EBCBC3"
+        android:textColor="#111"
+        android:textColorHint="#111"
+        android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="Nombre Usuario"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCorreo"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.005" />
+
 
     <Button
         android:id="@+id/btnContinuar"
         android:layout_width="248dp"
         android:layout_height="63dp"
-        android:text="Continuar"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Registrarse"
+        android:textColor="#111"
+        app:backgroundTint="#EBCBC3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.744" />
+        app:layout_constraintVertical_bias="0.784"
+        app:strokeColor="#000000"
+        app:strokeWidth="3dp" />
 
     <Button
         android:id="@+id/btnRegresar"
         android:layout_width="248dp"
         android:layout_height="63dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Regresar"
+        android:textColor="#111"
+        app:backgroundTint="#EBCBC3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857" />
+        app:layout_constraintVertical_bias="0.916"
+        app:strokeColor="#000000"
+        app:strokeWidth="3dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="292dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/txtConfirmacion"
+            android:layout_width="292dp"
+            android:layout_height="63dp"
+            android:background="#EBCBC3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Confirmar Contraseña"
+            android:inputType="textPersonName"
+            android:textColor="#111"
+            android:textColorHint="#111" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
