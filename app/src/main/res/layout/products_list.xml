@@ -36,11 +36,15 @@
             android:id="@+id/productName"
             android:layout_width="156dp"
             android:layout_height="50dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
             android:text="Nombre del Producto"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/productPrice"
@@ -54,11 +58,15 @@
 
         <Button
             android:id="@+id/button"
-            style="?android:attr/buttonBarButtonStyle"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="153dp"
             android:layout_height="59dp"
-            android:text="Añadir al Carrito"
-            android:textColor="@color/black" />
+            android:fontFamily="@font/poppins_medium"
+            android:text="AÑADIR AL CARRITO"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/cardThree"
+            app:iconTint="@android:color/transparent"
+            app:rippleColor="@android:color/transparent" />
 
     </LinearLayout>
 

@@ -201,6 +201,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             CategoriasYProductos.correoElec  = user.getEmail();
+            //Log.d("TAG", " - ----------------------------------- " + user.getDisplayName());
+
         }
         // [END get_user_profile]
     }
