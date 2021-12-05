@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_confirmar_orden.xml" value="0.11614583333333334" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_detalle_producto.xml" value="0.22192028985507245" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_home.xml" value="0.22192028985507245" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_productos.xml" value="0.22192028985507245" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_vista_carrito.xml" value="0.264" />
+        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/nav_header.xml" value="0.22192028985507245" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_categorias_yproductos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_contactanos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_detalle_producto.xml" value="0.25416666666666665" />
