@@ -121,7 +121,6 @@ public class CategoriasYProductos extends AppCompatActivity implements
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
-
     }
 
     private void loadCards(int cat){
@@ -136,7 +135,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
                     Producto p = objSnapshot.getValue(Producto.class);
                     if (p.getCategoryID() == cat){
 
-                        dataList.add(new Producto(p.getProductID(), p.getName(), p.getPrice() , p.getImage(),p.getImageSlider1(), p.getImageSlider2(), p.getProductDescription(), p.getCategoryID()));
+                        dataList.add(new Producto(p.getProductID(), p.getName(), p.getPrice() , p.getImage(),p.getImageSlider1(), p.getImageSlider2(), p.getProductDescription(), p.getCategoryID(), p.getProductRate()));
 
                     }
                 }

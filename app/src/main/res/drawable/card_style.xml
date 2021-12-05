@@ -4,7 +4,7 @@
 
     // The width and color of the border
     <stroke
-        android:width="3dp"
+        android:width="2dp"
         android:color="@color/chocoBrownHeavy" />
 
     <solid android:color="@color/cardThree" />

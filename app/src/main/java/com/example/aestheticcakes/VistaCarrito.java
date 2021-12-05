@@ -62,7 +62,7 @@ public class VistaCarrito extends AppCompatActivity {
         TotalPrecio.setText("Total a Pagar:"+String.valueOf(PrecioTotal));
         final DatabaseReference CarListRef = FirebaseDatabase.getInstance().getReference().child("CarritoLista");
 
-       FirebaseRecycleOptions<VistaCarrito> options = new FirebaseRecycleOptions.Builder<Carrito>()
+       //FirebaseRecycleOptions<VistaCarrito> options = new FirebaseRecycleOptions.Builder<Carrito>()
     }
     private void VerificarEstado(){
 
