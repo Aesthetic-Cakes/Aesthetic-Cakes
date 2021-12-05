@@ -47,8 +47,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
 
+
+
     AwesomeValidation awesomeValidation;
     FirebaseAuth firebaseAuth;
+
+
 
 
     @Override
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.txtCorreoLogin2, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
         awesomeValidation.addValidation(this,R.id.txtContrasenia3, ".{6,}", R.string.invalid_pass);
+
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
