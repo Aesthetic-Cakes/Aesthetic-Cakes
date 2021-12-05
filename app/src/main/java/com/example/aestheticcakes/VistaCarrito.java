@@ -25,6 +25,7 @@ public class VistaCarrito extends AppCompatActivity {
     private double PrecioTotal = 0.0;
     private String CurrentUserId;
     private FirebaseAuth auth;
+    //hola
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
