@@ -30,7 +30,7 @@
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
-        android:layout_height="73dp"
+        android:layout_height="60dp"
         android:fillViewport="true"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,22 +142,22 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="2dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@color/cardThree">
 
         <TextView
             android:id="@+id/idTitle"
             android:layout_width="wrap_content"
-            android:layout_height="61dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center_horizontal|center_vertical"
             android:text="AESTHETIC CAKES"

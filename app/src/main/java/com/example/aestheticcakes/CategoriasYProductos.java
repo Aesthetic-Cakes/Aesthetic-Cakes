@@ -11,10 +11,12 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +43,10 @@ public class CategoriasYProductos extends AppCompatActivity implements
     Bitmap temp;
     DatabaseReference databaseReference;
 
+    public static String correoElec = "";
+    public static Boolean inicioSesion = false;
+
+
     private Handler handler;
     private ProgressDialog dialog;
 
@@ -58,19 +64,40 @@ public class CategoriasYProductos extends AppCompatActivity implements
         //Para añadir el scrollbar
         navigationView.bringToFront();
         navigationView.setVerticalScrollBarEnabled(true);
-        //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+        //Continua de seccion del Scroll Bar //Aplicable a todas las activity
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
+        TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
+
+        if(inicioSesion == false){
+            nombreMenu.setText("Invitado");
+            correoMenu.setText("Invitado");
+        }
+        else{
+            nombreMenu.setText("Pendiente");
+            correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
+        }
+        //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         dataList = new ArrayList<>();
         recycler = (RecyclerView) findViewById(R.id.products_Recycler);
         recycler.setLayoutManager(new GridLayoutManager(this, 2));
-
-
         dialog = new ProgressDialog(this);
         dialog.setMessage("Obteniendo datos del servidor...");
         dialog.setCancelable(false);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.show();
         initFB();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loadCards(1);
+
+                dialog.dismiss();
+            }
+        }).start();
     }
 
     //Inicio de los metodos del menu //Aplicable a todas las activity
@@ -87,15 +114,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
     @Override
     protected void onStart() {
         super.onStart();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                loadCards(1);
-                dialog.dismiss();
-            }
-        }).start();
-        Button btnCat1 = findViewById(R.id.btnCat1);
-        btnCat1.setBackgroundColor(Color.rgb(235,203,195));
+
     }
 
     private void initFB(){
@@ -104,7 +123,6 @@ public class CategoriasYProductos extends AppCompatActivity implements
         databaseReference = firebaseDatabase.getReference();
 
     }
-
 
     private void loadCards(int cat){
         dataList.clear();
@@ -119,12 +137,18 @@ public class CategoriasYProductos extends AppCompatActivity implements
                     if (p.getCategoryID() == cat){
 
                         dataList.add(new Producto(p.getProductID(), p.getName(), p.getPrice() , p.getImage(),p.getImageSlider1(), p.getImageSlider2(), p.getProductDescription(), p.getCategoryID()));
+
                     }
                 }
 
                 AdaptadorDatos adapter = new AdaptadorDatos(dataList);
                 openDetail(adapter);
                 recycler.setAdapter(adapter);
+
+                if (cat == 1){
+                    SetBtnFocus(1);
+                }
+
             }
 
             @Override

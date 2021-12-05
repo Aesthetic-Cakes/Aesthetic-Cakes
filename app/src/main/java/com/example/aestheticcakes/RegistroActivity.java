@@ -19,14 +19,20 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    EditText txtCorreo, txtNombre, txtContrasenia;
+    EditText txtCorreo, txtNombre, txtContrasenia, txtConfirmar;
     Button btnContinuar, btnRegresar;
 
     AwesomeValidation awesomeValidation;
     FirebaseAuth firebaseAuth;
+    DatabaseReference mDatabase;
 
 
     @Override
@@ -35,14 +41,18 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         //Filtros de correo y contrasenia
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.txtCorreo, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
-        awesomeValidation.addValidation(this,R.id.txtContrasenia, ".{6,}", R.string.invalid_pass);
+        awesomeValidation.addValidation(this,R.id.txtContraseña2, ".{6,}", R.string.invalid_pass);
 
         txtCorreo = findViewById(R.id.txtCorreo);
         txtNombre = findViewById(R.id.txtNombre);
-        txtContrasenia = findViewById(R.id.txtContrasenia);
+        txtContrasenia = findViewById(R.id.txtContraseña2);
+        txtConfirmar = findViewById(R.id.txtConfirmacion);
+
         btnContinuar = findViewById(R.id.btnContinuar);
         btnRegresar = findViewById(R.id.btnRegresar);
 
@@ -52,29 +62,46 @@ public class RegistroActivity extends AppCompatActivity {
 
                 String mail = txtCorreo.getText().toString();
                 String pass = txtContrasenia.getText().toString();
+                String nombre = txtNombre.getText().toString();
+                String confirmar = txtConfirmar.getText().toString();
 
                 if (awesomeValidation.validate()){
-
                     firebaseAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(RegistroActivity.this, "Usuario creado con exito", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }else{
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("Name", nombre);
+                                map.put("Mail", mail);
+                                map.put("Pass", pass);
 
+                                String id = firebaseAuth.getCurrentUser().getUid();
+                                mDatabase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task2) {
+                                        if (task2.isSuccessful()){
+                                            Toast.makeText(RegistroActivity.this, "Usuario creado con exito", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        }else {
+                                            Toast.makeText(RegistroActivity.this, "No se crearon los datos correctamente", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                            }else{
+                                if (nombre.isEmpty() || nombre.length() < 6){
+                                    Toast.makeText(RegistroActivity.this, "Usuario no es valido", Toast.LENGTH_SHORT).show();
+                                }else if (confirmar.isEmpty() || !confirmar.equals(pass)){
+                                    Toast.makeText(RegistroActivity.this, "Contraseña no coincide", Toast.LENGTH_SHORT).show();
+                                }
                                 String error = ((FirebaseAuthException) task.getException()).getErrorCode();
                                 dameToastdeerror(error);
-
                             }
                         }
                     });
                 }else{
                     Toast.makeText(RegistroActivity.this, "Llene todos los espacios", Toast.LENGTH_SHORT);
                 }
-
-                /*Intent i = new Intent(RegistroActivity.this, DireccionActivity.class);
-                startActivity(i);*/
             }
         });
 
@@ -167,4 +194,5 @@ public class RegistroActivity extends AppCompatActivity {
         }
 
     }
+
 }
