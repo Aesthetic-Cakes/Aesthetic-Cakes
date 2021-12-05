@@ -43,8 +43,23 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
 
+        String rate = "";
+        int noRate = 0;
+
         holder.productName.setText(dataList.get(position).getName());
         holder.productPrice.setText("Lps: " + dataList.get(position).getPrice().toString());
+
+
+        for (int i = 0; i < dataList.get(position).getProductRate(); i++){
+            rate += "★";
+            noRate += 1;
+        }
+
+        for (int j = 0; j < 5 - noRate; j++){
+            rate += "☆";
+        }
+
+        holder.productRating.setText(rate);
 
         Picasso.get().load(dataList.get(position).getImage()).fit().centerInside().noFade().placeholder(R.drawable.clock).into(holder.productImage);
 
@@ -71,13 +86,14 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
-        TextView productName, productPrice;
+        TextView productName, productPrice, productRating;
         ImageView productImage;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             productName = (TextView) itemView.findViewById(R.id.productName);
             productPrice = (TextView) itemView.findViewById(R.id.productPrice);
+            productRating = (TextView) itemView.findViewById(R.id.productRate);
             productImage = (ImageView) itemView.findViewById(R.id.productImage);
         }
 

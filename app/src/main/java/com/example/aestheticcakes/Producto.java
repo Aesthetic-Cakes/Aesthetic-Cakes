@@ -12,8 +12,9 @@ public class Producto {
     private String imageSlider2;
     private String productDescription;
     private int categoryID;
+    private int productRate;
 
-    public Producto(int productID, String name, Double price, String image, String imageSlider1, String imageSlider2, String productDescription, int categoryID) {
+    public Producto(int productID, String name, Double price, String image, String imageSlider1, String imageSlider2, String productDescription, int categoryID, int productRate) {
         this.productID = productID;
         this.name = name;
         this.price = price;
@@ -22,6 +23,7 @@ public class Producto {
         this.imageSlider2 = imageSlider2;
         this.productDescription = productDescription;
         this.categoryID = categoryID;
+        this.productRate = productRate;
     }
 
 
@@ -90,6 +92,12 @@ public class Producto {
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
+
+
+    public int getProductRate() { return productRate; }
+
+    public void setProductRate(int productRate) { this.productRate = productRate; }
+
 
 
 
