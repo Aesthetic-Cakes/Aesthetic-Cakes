@@ -22,7 +22,7 @@
         android:id="@+id/txtAestetick"
         android:layout_width="324dp"
         android:layout_height="55dp"
-        android:text="Aestetick Cake"
+        android:text="AESTHETIC CAKES"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"

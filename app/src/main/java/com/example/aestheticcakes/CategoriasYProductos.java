@@ -249,7 +249,6 @@ public class CategoriasYProductos extends AppCompatActivity implements
                 detalle.setImage1(dataList.get(recycler.getChildAdapterPosition(v)).getImage());
                 detalle.setImage2(dataList.get(recycler.getChildAdapterPosition(v)).getImageSlider1());
                 detalle.setImage3(dataList.get(recycler.getChildAdapterPosition(v)).getImageSlider2());
-                //Toast.makeText(getApplicationContext(), "Product ID: " +detalle.getDescripcionSeleccionada(), Toast.LENGTH_SHORT).show();
             }
         });
     }

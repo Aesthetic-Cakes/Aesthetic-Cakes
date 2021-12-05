@@ -18,9 +18,7 @@
 
 
     </com.google.android.material.navigation.NavigationView>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layerType="hardware"
@@ -130,13 +128,13 @@
         android:id="@+id/products_Recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:iconTint="@color/cardThree"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:iconTint="@color/cardThree"
-        app:rippleColor="@color/cardThree"/>
+        app:rippleColor="@color/cardThree" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

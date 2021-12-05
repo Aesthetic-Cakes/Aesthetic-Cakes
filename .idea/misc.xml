@@ -3,13 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_confirmar_orden.xml" value="0.11614583333333334" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_detalle_producto.xml" value="0.22192028985507245" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_home.xml" value="0.22192028985507245" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_productos.xml" value="0.22192028985507245" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/activity_vista_carrito.xml" value="0.264" />
-        <entry key="..\:/ProyectoMovil/app/src/main/res/layout/nav_header.xml" value="0.22192028985507245" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_categorias_yproductos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_contactanos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ardon/Desktop/Aesthetic-Cakes/app/src/main/res/layout/activity_detalle_producto.xml" value="0.25416666666666665" />
@@ -30,11 +23,13 @@
         <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/activity_categorias_yproductos.xml" value="0.33" />
         <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/activity_login.xml" value="0.2015625" />
         <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/activity_vista_carrito.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/OscarM/Documents/Aesthetic-Cakes/app/src/main/res/layout/products_list.xml" value="0.5" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

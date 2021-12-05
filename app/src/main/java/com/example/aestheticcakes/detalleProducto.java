@@ -48,11 +48,11 @@ public class detalleProducto extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_producto);
 
-        productoID = getIntent().getStringExtra("pid");
+
 
         productoPrecio=(TextView)findViewById(R.id.txtPrecio);
         productoNombre=(TextView) findViewById(R.id.txtNombre);
-        ObtenerDatosProducto(productoID);
+
         auth = FirebaseAuth.getInstance();
         CurrentUserId =auth.getCurrentUser().getUid();
 
@@ -102,17 +102,19 @@ public class detalleProducto extends AppCompatActivity implements
         descripcion.setText(detalle.getDescripcionSeleccionada());
         precio.setText("Precio: " + detalle.getPrecioSeleccionado() + " Lps.");
 
+        productoID = "" + detalle.getCodigoSeleccionado();
+        //ObtenerDatosProducto(productoID);
 
     }
 
-    private void ObtenerDatosProducto(String productoID) {
+/*   private void ObtenerDatosProducto(String productoID) {
         DatabaseReference ProductoRef = FirebaseDatabase.getInstance().getReference().child("Productos");
         ProductoRef.child(productoID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
             if(snapshot.exists()){
                 Carrito productos = snapshot.getValue(Carrito.class);
-                productoNombre.setText(productos.getNombre());
+                productoNombre.setText(productos.getName());
                 productoPrecio.setText(productos.getPrecio());
             }
             }
@@ -123,6 +125,8 @@ public class detalleProducto extends AppCompatActivity implements
             }
         });
     }
+*/
+
 
 
     private void agregarAlista() {
