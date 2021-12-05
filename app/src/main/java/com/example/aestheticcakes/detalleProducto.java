@@ -201,6 +201,7 @@ public class detalleProducto extends AppCompatActivity implements
 
     }
 //Verificar
+    //Carrito
     private void VerificarEstadOrden() {
         DatabaseReference OrdenRef;
         OrdenRef = FirebaseDatabase.getInstance().getReference().child("Orden").child(CurrentUserId);
