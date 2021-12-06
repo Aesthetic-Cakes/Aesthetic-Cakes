@@ -35,7 +35,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
 
     private ArrayList<Producto> listProducts = new ArrayList<Producto>();
     NavigationView navigationView;
-
+    //Commit
     ArrayList<Producto> dataList;
     RecyclerView recycler;
 
