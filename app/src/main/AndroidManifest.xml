@@ -15,9 +15,6 @@
             android:name=".VerCarrito"
             android:exported="true" />
         <activity
-            android:name=".AdaptadorDatosCarrito"
-            android:exported="true" />
-        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>
