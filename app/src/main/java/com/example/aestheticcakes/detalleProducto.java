@@ -37,7 +37,7 @@ public class detalleProducto extends AppCompatActivity implements
         private TextView productoPrecio, productoNombre;
         private String productoID = "", CurrentUserId;
         private FirebaseAuth auth;
-
+        private double precioIndividual = 0;
 
         NavigationView navigationView;
     private Object SimpleDateFormat;
@@ -64,7 +64,12 @@ public class detalleProducto extends AppCompatActivity implements
                     Toast.makeText(detalleProducto.this, "Esperando a que finalice el primer pedido...", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    agregarAlista();
+                    if (CurrentUserId == ""){
+                        Toast.makeText(detalleProducto.this, "DEBE INICIAR SESION PRIMERO", Toast.LENGTH_SHORT).show();
+                    }else{
+                        agregarAlista();
+                    }
+
                 }
             }
         });
@@ -102,6 +107,8 @@ public class detalleProducto extends AppCompatActivity implements
         descripcion.setText(detalle.getDescripcionSeleccionada());
         precio.setText("Precio: " + detalle.getPrecioSeleccionado() + " Lps.");
 
+        precioIndividual = detalle.getPrecioSeleccionado();
+
         productoID = "" + detalle.getCodigoSeleccionado();
         //ObtenerDatosProducto(productoID);
 
@@ -137,14 +144,20 @@ public class detalleProducto extends AppCompatActivity implements
         SimpleDateFormat time= new SimpleDateFormat("MM-dd-yyyy");
         CurrentTime=time.format(calendar.getTime());
 
+        String cantidad;
+        cantidad = "" + numeroCantidad;
+
+        String precioIndi;
+        precioIndi = "" + precioIndividual;
+
         final DatabaseReference CarListRef = FirebaseDatabase.getInstance().getReference().child("CarritoLista");
         final HashMap<String, Object> map = new HashMap<>();
         map.put("pid", productoID);
         map.put("nombre", productoNombre.getText().toString());
-        map.put("precio", productoPrecio.getText().toString());
+        map.put("precio", precioIndi);
         map.put("fecha", CurrentDate);
         map.put("hora", CurrentTime);
-        map.put("cantidad",numeroCantidad);
+        map.put("cantidad", cantidad);
 
         CarListRef.child("Users").child(CurrentUserId).child("Productos").child(productoID).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -154,7 +167,7 @@ public class detalleProducto extends AppCompatActivity implements
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(detalleProducto.this, "Agregado...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(detalleProducto.this, "Agregado al Carrito", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(detalleProducto.this, MainActivity.class);
                                 startActivity(intent);

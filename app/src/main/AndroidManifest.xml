@@ -12,10 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AestheticCakes">
         <activity
+            android:name=".VerCarrito"
+            android:exported="true" />
+        <activity
+            android:name=".AdaptadorDatosCarrito"
+            android:exported="true" />
+        <activity
             android:name=".Splash"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,8 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".VistaCarrito"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />

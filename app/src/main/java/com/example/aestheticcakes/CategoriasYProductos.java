@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -40,7 +38,6 @@ public class CategoriasYProductos extends AppCompatActivity implements
     RecyclerView recycler;
 
     FirebaseDatabase firebaseDatabase;
-    Bitmap temp;
     DatabaseReference databaseReference;
 
     public static String correoElec = "";
@@ -81,7 +78,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
         //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         dataList = new ArrayList<>();
-        recycler = (RecyclerView) findViewById(R.id.products_Recycler);
+        recycler = (RecyclerView) findViewById(R.id.cartRecyclerView2);
         recycler.setLayoutManager(new GridLayoutManager(this, 2));
         dialog = new ProgressDialog(this);
         dialog.setMessage("Obteniendo datos del servidor...");
@@ -156,7 +153,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
             }
         });
 
-        View recyclerView = findViewById(R.id.products_Recycler);
+        View recyclerView = findViewById(R.id.cartRecyclerView2);
         recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
