@@ -13,10 +13,9 @@
         android:theme="@style/Theme.AestheticCakes">
         <activity
             android:name=".Splash"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,7 +27,8 @@
             android:exported="false" />
         <activity
             android:name=".VistaCarrito"
-            android:exported="false" />
+            android:exported="false"/>
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -40,8 +40,7 @@
             android:exported="true" />
         <activity
             android:name=".CategoriasYProductos"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Contactanos"
             android:exported="true" />
@@ -51,7 +50,6 @@
         <activity
             android:name=".detalleProducto"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true" />
