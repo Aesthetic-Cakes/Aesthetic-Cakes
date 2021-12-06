@@ -22,7 +22,7 @@ public class RedireccionadorMenuLateral {
                 abrirInterfaz(context, CategoriasYProductos.class);
                 break;
             case R.id.btnNavCarrito:
-                Toast.makeText(context, "Carrito", Toast.LENGTH_SHORT).show();
+                abrirInterfaz(context, VerCarrito.class);
                 break;
             case R.id.btnNavEquipoDesarrollo:
                 abrirInterfaz(context, EquipoDesarrollo.class);
@@ -55,7 +55,7 @@ public class RedireccionadorMenuLateral {
                         public void onClick(DialogInterface dialog, int which) {
                             CategoriasYProductos.inicioSesion = false;
                             FirebaseAuth.getInstance().signOut();
-                            abrirInterfaz(context, CategoriasYProductos.class);
+                            abrirInterfaz(context, Splash.class);
                         }
                     })
                     .setNegativeButton("No", null)

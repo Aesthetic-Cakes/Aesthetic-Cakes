@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,6 +29,13 @@ public class EquipoDesarrollo extends AppCompatActivity implements
         navigationView.bringToFront();
         navigationView.setVerticalScrollBarEnabled(true);
         //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
+        TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
+        nombreMenu.setText(String.valueOf(CategoriasYProductos.nombrePer));
+        correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
+        //Fin de lineas del scrollbar, no aplicables a todas las activities
 
     }
 

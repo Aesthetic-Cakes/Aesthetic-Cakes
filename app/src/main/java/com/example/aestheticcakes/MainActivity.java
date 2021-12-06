@@ -2,6 +2,7 @@ package com.example.aestheticcakes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -28,6 +29,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 import com.google.rpc.context.AttributeContext;
 
 import java.util.List;
@@ -198,19 +206,49 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, CategoriasYProductos.class);
         i.putExtra("mail", txtCorreo.getText().toString());
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(i);
+        Handler h =new Handler();
+        Runnable r=new Runnable() {
+            public void run() {
+                startActivity(i);
+            }
+        };
+        h.postDelayed(r, 1500);
+
     }
+
+    private String name = "";
 
     public void getUserProfile() {
         // [START get_user_profile]
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             CategoriasYProductos.correoElec  = user.getEmail();
-            //Log.d("TAG", " - ----------------------------------- " + user.getDisplayName());
+            obtenerNombre();
 
         }
         // [END get_user_profile]
     }
+
+    private DatabaseReference mDatabase;
+
+    private synchronized void obtenerNombre(){
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    CategoriasYProductos.nombrePer = snapshot.child("Name").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 
     private void dameToastdeerror(String error) {
 

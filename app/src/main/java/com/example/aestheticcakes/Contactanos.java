@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -33,6 +34,13 @@ public class Contactanos extends AppCompatActivity implements
         navigationView.bringToFront();
         navigationView.setVerticalScrollBarEnabled(true);
         //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
+        TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
+        nombreMenu.setText(String.valueOf(CategoriasYProductos.nombrePer));
+        correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
+        //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         WebView web = (WebView) findViewById(R.id.mapa); //Objeto pantalla
         web.setWebViewClient(new MyWebViewClient());
@@ -59,7 +67,7 @@ public class Contactanos extends AppCompatActivity implements
     }
 
     public void abrirFacebook(View view){
-        abrirIntent("fb://");
+        abrirIntent("fb://profile/100075493982978");
     }
 
     public void abrirTelefono(View view){
@@ -67,7 +75,7 @@ public class Contactanos extends AppCompatActivity implements
     }
 
     public void abrirInstagram(View view){
-        abrirIntent("instagram://user?username=put_here_account");
+        abrirIntent("instagram://user?username=aesthetic_cakes21");
     }
 
     private void abrirIntent(String url){

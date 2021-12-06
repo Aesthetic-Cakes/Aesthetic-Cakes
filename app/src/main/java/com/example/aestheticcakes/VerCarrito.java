@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class VerCarrito extends AppCompatActivity {
+public class VerCarrito extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener{
     private ArrayList<Carrito> listProducts = new ArrayList<Carrito>();
 
     FirebaseDatabase firebaseDatabase;
@@ -38,7 +41,7 @@ public class VerCarrito extends AppCompatActivity {
     TextView totalAlPagar;
 
     private int totalAPagar = 0;
-
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,23 @@ public class VerCarrito extends AppCompatActivity {
         recycler = (RecyclerView) findViewById(R.id.cartRecyclerView2);
         totalAlPagar = (TextView) findViewById(R.id.TotalPrecio);
         recycler.setLayoutManager(new GridLayoutManager(this, 1));
+
+        //Variable del Scroll Bar //Aplicable a todas las activity
+        navigationView = (NavigationView)findViewById(R.id.navView);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        }
+        //Para añadir el scrollbar
+        navigationView.bringToFront();
+        navigationView.setVerticalScrollBarEnabled(true);
+        //Fin de seccion del Scroll Bar //Aplicable a todas las activity
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
+        TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
+        nombreMenu.setText(String.valueOf(CategoriasYProductos.nombrePer));
+        correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
+        //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         initFB();
         loadCart();
@@ -135,5 +155,12 @@ public class VerCarrito extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        new RedireccionadorMenuLateral().redireccionador(id, this);
+        return true;
     }
 }

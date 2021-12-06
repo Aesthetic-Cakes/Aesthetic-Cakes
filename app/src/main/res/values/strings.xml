@@ -7,5 +7,7 @@
     </string>
     <string name="invalid_mail">Ingrese un mail valido</string>
     <string name="invalid_pass">Ingrese una cotraseña mayor a 6 digitos</string>
+    <string name="nombreM"></string>
+    <string name="correoM"></string>
 
 </resources>

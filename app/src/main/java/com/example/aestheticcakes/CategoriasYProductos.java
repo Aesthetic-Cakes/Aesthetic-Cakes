@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 public class CategoriasYProductos extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener{
 
+    private static final String TAG = "ACTIVI";
     private ArrayList<Producto> listProducts = new ArrayList<Producto>();
     NavigationView navigationView;
     //Commit
@@ -41,6 +43,7 @@ public class CategoriasYProductos extends AppCompatActivity implements
     DatabaseReference databaseReference;
 
     public static String correoElec = "";
+    public static String nombrePer = "";
     public static Boolean inicioSesion = false;
 
 
@@ -67,14 +70,9 @@ public class CategoriasYProductos extends AppCompatActivity implements
         TextView correoMenu = (TextView) headerView.findViewById(R.id.txtMailMenu);
         TextView nombreMenu = (TextView) headerView.findViewById(R.id.txtNombreMenu);
 
-        if(inicioSesion == false){
-            nombreMenu.setText("Invitado");
-            correoMenu.setText("Invitado");
-        }
-        else{
-            nombreMenu.setText("Pendiente");
-            correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
-        }
+        Log.i(TAG, "ALLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO " + CategoriasYProductos.nombrePer);
+        nombreMenu.setText(String.valueOf(CategoriasYProductos.nombrePer));
+        correoMenu.setText(String.valueOf(CategoriasYProductos.correoElec));
         //Fin de lineas del scrollbar, no aplicables a todas las activities
 
         dataList = new ArrayList<>();
